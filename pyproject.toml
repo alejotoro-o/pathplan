@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=82.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pathplan"
+version = "0.1.0"
+authors = [
+    { name="Alejandro Toro-Ossaba", email="alejotoro.o@gmail.com" },
+]
+description = "A lightweight Python library for path planning."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+keywords = ["path finding", "path planning", "robot navigation"]
+license = "MIT"
+license-files = ["LICENSE*"]
+dependencies = [
+    "numpy>=2.2.0",
+    "tqdm>=4.67.1",
+]
+[project.optional-dependencies]
+
+[project.urls]
+"Homepage" = "https://github.com/alejotoro-o/pathplan"
+"Documentation" = "https://github.com/alejotoro-o/pathplan"
+"Repository" = "https://github.com/alejotoro-o/pathplan"
+"Bug Tracker" = "https://github.com/alejotoro-o/pathplan/issues"
