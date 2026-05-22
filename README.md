@@ -60,26 +60,28 @@ viz.plot_path(path, explored, title="A* Path Planning")
 
 ## Available Algorithms
 
-| Code / Abbreviation | Full Name | Original Reference |
-| :--- | :--- | :--- |
-| `DijkstraPlanner` | Dijkstra's Algorithm | [Dijkstra (1959)](https://dl.acm.org/doi/10.1145/368959.368993) |
-| `AStarPlanner` | A* Search Algorithm | [Hart et al. (1968)](https://ieeexplore.ieee.org/document/4082128) |
-| `BidirectionalAStarPlanner` | Bidirectional A* | [Pohl (1971)](https://dl.acm.org/doi/10.1145/321650.321651) |
-| `ThetaStarPlanner` | Theta* (Any-Angle A*) | [Nash et al. (2007)](https://dl.acm.org/doi/10.5555/1283383.1283444) |
-| `JPSPlanner` | Jump Point Search | [Harabor & Grastien (2011)](https://www.aaai.org/ocs/index.php/ICAPS/ICAPS11/paper/view/3432) |
-| `DStarLitePlanner` | D* Lite | [Koenig & Likhachev (2002)](https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf) |
-| `RRTPlanner` | Rapidly-exploring Random Tree | [LaValle (1998)](http://msl.cs.uiuc.edu/~lavalle/papers/Lav98c.pdf) |
-| `RRTStarPlanner` | RRT* (Optimal RRT) | [Karaman & Frazzoli (2011)](https://journals.sagepub.org/doi/10.1177/0278364911406761) |
-| `InformedRRTStarPlanner` | Informed RRT* | [Gammell et al. (2014)](https://ieeexplore.ieee.org/document/6942976) |
-| `PRMPlanner` | Probabilistic Roadmap | [Kavraki et al. (1996)](https://ieeexplore.ieee.org/document/508439) |
-| `APFPlanner` | Artificial Potential Fields | [Khatib (1986)](https://ieeexplore.ieee.org/document/4089857) |
-| `Bug2Planner` | Bug2 Algorithm | [Lumelsky & Stepanov (1987)](https://ieeexplore.ieee.org/document/4100236) |
+| Code | Full Name |
+| :--- | :--- |
+| `DijkstraPlanner` | Dijkstra's Algorithm |
+| `AStarPlanner` | A* Search Algorithm |
+| `BidirectionalAStarPlanner` | Bidirectional A* |
+| `ThetaStarPlanner` | Theta* (Any-Angle A*) |
+| `JPSPlanner` | Jump Point Search |
+| `DStarLitePlanner` | D* Lite |
+| `RRTPlanner` | Rapidly-exploring Random Tree |
+| `RRTStarPlanner` | RRT* (Optimal RRT) |
+| `InformedRRTStarPlanner` | Informed RRT* |
+| `PRMPlanner` | Probabilistic Roadmap |
+| `APFPlanner` | Artificial Potential Fields |
+| `Bug2Planner` | Bug2 Algorithm |
 
 ## Testing
+
 Run the suite of automated tests to verify planner integrity:
 ```bash
 pytest -v
 ```
 
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
