@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pathplan"
-version = "0.1.0"
+version = "0.0.1"
 authors = [
     { name="Alejandro Toro-Ossaba", email="alejotoro.o@gmail.com" },
 ]
@@ -20,9 +20,14 @@ license = "MIT"
 license-files = ["LICENSE*"]
 dependencies = [
     "numpy>=2.2.0",
-    "tqdm>=4.67.1",
 ]
 [project.optional-dependencies]
+plot = [
+    "matplotlib>=3.5.0"
+]
+test = [
+    "pytest>=9.0.0"
+]
 
 [project.urls]
 "Homepage" = "https://github.com/alejotoro-o/pathplan"
