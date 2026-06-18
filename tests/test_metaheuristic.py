@@ -3,9 +3,19 @@ import numpy as np
 from typing import Type
 from pathplan.core.base_solver import BaseSolver
 from pathplan.metaheuristic.ga import GAPlanner
+from pathplan.metaheuristic.pso import PSOPlanner
+from pathplan.metaheuristic.gwo import GWOPlanner
+from pathplan.metaheuristic.woa import WOAPlanner
 
-@pytest.mark.parametrize("planner_class", [GAPlanner])
-def test_ga_start_equals_goal(planner_class: Type[BaseSolver], empty_map_20x20):
+METAHEURISTIC_PLANNERS = [
+    GAPlanner,
+    PSOPlanner,
+    GWOPlanner,
+    WOAPlanner,
+]
+
+@pytest.mark.parametrize("planner_class", METAHEURISTIC_PLANNERS)
+def test_start_equals_goal(planner_class: Type[BaseSolver], empty_map_20x20):
     """Verifies edge case behavior when target goal coordinates equal start points."""
     planner = planner_class(empty_map_20x20)
     start = (5.0, 5.0)
@@ -17,10 +27,9 @@ def test_ga_start_equals_goal(planner_class: Type[BaseSolver], empty_map_20x20):
     assert len(path) == 1
     assert path[0] == start
 
-@pytest.mark.parametrize("planner_class", [GAPlanner])
-def test_ga_successful_path_empty_map(planner_class: Type[GAPlanner], empty_map_20x20):
-    """Verifies that GAPlanner finds a path in an empty map."""
-    # Using small iterations and population for faster testing
+@pytest.mark.parametrize("planner_class", METAHEURISTIC_PLANNERS)
+def test_successful_path_empty_map(planner_class: Type[BaseSolver], empty_map_20x20):
+    """Verifies that metaheuristic planners find a path in an empty map."""
     planner = planner_class(empty_map_20x20, num_waypoints=3, pop_size=20, max_iter=50)
     start = (0.0, 0.0)
     goal = (19.0, 19.0)
@@ -32,14 +41,13 @@ def test_ga_successful_path_empty_map(planner_class: Type[GAPlanner], empty_map_
     assert path[0] == start
     assert path[-1] == goal
     
-    # Verify path elements do not collide (none in empty map anyway)
     for node in path:
         coord_idx = (int(round(node[0])), int(round(node[1])))
         assert not empty_map_20x20.is_occupied(*coord_idx)
 
-@pytest.mark.parametrize("planner_class", [GAPlanner])
-def test_ga_unreachable_goal(planner_class: Type[GAPlanner], blocked_map_5x5):
-    """Verifies that GAPlanner returns None when a path is physically blocked."""
+@pytest.mark.parametrize("planner_class", METAHEURISTIC_PLANNERS)
+def test_unreachable_goal(planner_class: Type[BaseSolver], blocked_map_5x5):
+    """Verifies that metaheuristic planners return None when a path is physically blocked."""
     planner = planner_class(blocked_map_5x5, num_waypoints=2, pop_size=20, max_iter=20)
     start = (0.0, 0.0)
     goal = (4.0, 4.0)

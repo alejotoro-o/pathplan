@@ -9,7 +9,7 @@ A lightweight, extensible Python library for 2D path planning and navigation. Pa
 
 ## Features
 - **Unified Interface**: All planners follow a consistent `BaseSolver` API.
-- **Rich Algorithm Library**: Includes 12 different path planning strategies ranging from graph-search to sampling-based and reactive methods.
+- **Rich Algorithm Library**: Includes 16 different path planning strategies ranging from graph-search to sampling-based, reactive, and metaheuristic methods.
 - **Standardized Mapping**: Uses a normalized `GridMap` (0.0 for free space, 1.0 for obstacles).
 - **Visualization**: Built-in utilities for rendering search progress (explored nodes/edges) and final paths.
 
@@ -60,6 +60,8 @@ viz.plot_path(path, explored, title="A* Path Planning")
 
 ## Available Algorithms
 
+### Classic Planners (`pathplan.classic`)
+
 | Code | Full Name |
 | :--- | :--- |
 | `DijkstraPlanner` | Dijkstra's Algorithm |
@@ -74,6 +76,17 @@ viz.plot_path(path, explored, title="A* Path Planning")
 | `PRMPlanner` | Probabilistic Roadmap |
 | `APFPlanner` | Artificial Potential Fields |
 | `Bug2Planner` | Bug2 Algorithm |
+
+### Metaheuristic Planners (`pathplan.metaheuristic`)
+
+Requires the external [`metaheuropt`](https://github.com/alejotoro-o/metaheuropt) library.
+
+| Code | Full Name |
+| :--- | :--- |
+| `GAPlanner` | Genetic Algorithm |
+| `PSOPlanner` | Particle Swarm Optimization |
+| `GWOPlanner` | Grey Wolf Optimizer |
+| `WOAPlanner` | Whale Optimization Algorithm |
 
 ## Testing
 
