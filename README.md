@@ -9,7 +9,7 @@ A lightweight, extensible Python library for 2D path planning and navigation. Pa
 
 ## Features
 - **Unified Interface**: All planners follow a consistent `BaseSolver` API.
-- **Rich Algorithm Library**: Includes 16 different path planning strategies ranging from graph-search to sampling-based, reactive, and metaheuristic methods.
+- **Rich Algorithm Library**: Includes 18 different path planning strategies ranging from graph-search to sampling-based, reactive, metaheuristic, and reinforcement learning methods.
 - **Standardized Mapping**: Uses a normalized `GridMap` (0.0 for free space, 1.0 for obstacles).
 - **Visualization**: Built-in utilities for rendering search progress (explored nodes/edges) and final paths.
 
@@ -87,6 +87,15 @@ Requires the external [`metaheuropt`](https://github.com/alejotoro-o/metaheuropt
 | `PSOPlanner` | Particle Swarm Optimization |
 | `GWOPlanner` | Grey Wolf Optimizer |
 | `WOAPlanner` | Whale Optimization Algorithm |
+
+### RL Planners (`pathplan.rl`)
+
+Requires the external [`rlforge`](https://github.com/alejotoro-o/rlforge) library.
+
+| Code | Full Name |
+| :--- | :--- |
+| `QLearningPlanner` | Q-Learning |
+| `SarsaPlanner` | SARSA |
 
 ## Testing
 
