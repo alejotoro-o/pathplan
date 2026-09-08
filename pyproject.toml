@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pathplan"
-version = "0.1.0"
+version = "0.2.0"
 authors = [
     { name="Alejandro Toro-Ossaba", email="alejotoro.o@gmail.com" },
 ]
@@ -27,6 +27,18 @@ plot = [
 ]
 test = [
     "pytest>=9.0.0"
+]
+metaheuristic = [
+    "metaheuropt>=0.1.0"
+]
+rl = [
+    "rlforge>=1.1.0"
+]
+all = [
+    "matplotlib>=3.5.0",
+    "pytest>=9.0.0",
+    "metaheuropt>=0.1.0",
+    "rlforge>=1.1.0",
 ]
 
 [project.urls]

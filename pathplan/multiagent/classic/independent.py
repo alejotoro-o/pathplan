@@ -1,0 +1,37 @@
+from typing import Any, List, Optional, Tuple
+
+from pathplan.core.map import GridMap
+from pathplan.multiagent.core.base import Agents, BaseMAPFSolver, Path
+from pathplan.multiagent.utils.utils import ReservationTable, space_time_a_star
+
+
+class IndependentPlanner(BaseMAPFSolver):
+    """Each agent plans independently with space-time A*.
+
+    No inter-agent collision avoidance — paths may collide.
+    This is the simplest (and fastest) multi-agent planner and
+    serves as a baseline for comparing coordinated methods.
+
+    Parameters
+    ----------
+    grid_map:
+        The shared occupancy grid.
+    max_timesteps:
+        Planning horizon for each agent.
+    """
+
+    def __init__(self, grid_map: GridMap, max_timesteps: int = 500) -> None:
+        super().__init__(grid_map, max_timesteps)
+
+    def plan(self, agents: Agents) -> Tuple[List[Optional[Path]], Any]:
+        rt = ReservationTable()
+        paths: List[Optional[Path]] = []
+
+        for start, goal in agents:
+            path = space_time_a_star(
+                self.grid_map, start, goal, rt,
+                max_timesteps=self.max_timesteps,
+            )
+            paths.append(path)
+
+        return paths, None

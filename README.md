@@ -9,7 +9,7 @@ A lightweight, extensible Python library for 2D path planning and navigation. Pa
 
 ## Features
 - **Unified Interface**: All planners follow a consistent `BaseSolver` API.
-- **Rich Algorithm Library**: Includes 18 different path planning strategies ranging from graph-search to sampling-based, reactive, metaheuristic, and reinforcement learning methods.
+- **Rich Algorithm Library**: Includes 27 different path planning strategies ranging from graph-search to sampling-based, reactive, metaheuristic, reinforcement learning, and multi-agent methods.
 - **Standardized Mapping**: Uses a normalized `GridMap` (0.0 for free space, 1.0 for obstacles).
 - **Visualization**: Built-in utilities for rendering search progress (explored nodes/edges) and final paths.
 
@@ -18,11 +18,20 @@ A lightweight, extensible Python library for 2D path planning and navigation. Pa
 Install the library directly from PyPI:
 
 ```bash
-# Basic installation
+# Basic installation — includes all classic and multi-agent planners
 pip install pathplan
 
 # Install with plotting support
 pip install pathplan[plot]
+
+# Install with metaheuristic planners (GA, PSO, GWO, WOA)
+pip install pathplan[metaheuristic]
+
+# Install with reinforcement learning planners (Q-Learning, SARSA)
+pip install pathplan[rl]
+
+# Install everything
+pip install pathplan[all]
 ```
 
 Alternatively, for development or to use the latest source:
@@ -32,6 +41,11 @@ git clone https://github.com/alejotoro-o/pathplan.git
 cd pathplan
 pip install .[plot]
 ```
+
+> **Note:** The base installation includes all classic and multi-agent planners.
+> Metaheuristic planners require [`metaheuropt`](https://github.com/alejotoro-o/metaheuropt).
+> RL planners require [`rlforge`](https://github.com/alejotoro-o/rlforge).
+> Both are installed automatically with the corresponding extras.
 
 ## Quick Start
 
@@ -96,6 +110,19 @@ Requires the external [`rlforge`](https://github.com/alejotoro-o/rlforge) librar
 | :--- | :--- |
 | `QLearningPlanner` | Q-Learning |
 | `SarsaPlanner` | SARSA |
+
+### Multi-Agent Planners (`pathplan.multiagent`)
+
+| Code | Full Name |
+| :--- | :--- |
+| `IndependentPlanner` | Independent Planning |
+| `PrioritizedPlanner` | Prioritized Planning |
+| `CBSPlanner` | Conflict-Based Search |
+| `ECBSPlanner` | Enhanced Conflict-Based Search |
+| `IDPlanner` | Independence Detection |
+| `PBSPlanner` | Priority-Based Search |
+
+Includes `MultiAgentVisualizer` for rendering multiple agent paths on a single grid.
 
 ## Testing
 
